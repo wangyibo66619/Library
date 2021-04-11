@@ -191,7 +191,7 @@ public class LibraryManage {
                     System.out.println("请输入归还日期（年/月/日）：");
                     guihuanBookDate = scanner.next();
                     System.out.println("归还《" + bookSet.book[i].name + "》成功！");
-                    bookSet.book[i].flag = true;
+                    bookSet.book[i].flag = true;// 借出状态换为未借出
                     System.out.println("借出日期为：" + bookSet.book[i].date);
                     System.out.println("归还日期为：" + guihuanBookDate);
 
@@ -201,6 +201,7 @@ public class LibraryManage {
                     long daysBetween = (d2.getTime()-d1.getTime()) / (24*60*60*1000);
 
                     System.out.println("应付租金（元）" + daysBetween + "元");
+                    bookSet.book[i].date = "";// 借出日期重置
                     break;
                 }
 
